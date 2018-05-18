@@ -1,7 +1,7 @@
 import { ValidatorFn, AbstractControl } from '@angular/forms';
 
 export function enumValidator(enumArr: any[]): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} => {
+  return (control: AbstractControl): {[key: string]: any}|null => {
     if(!control.value && control.value !== 0) {
       return null;
     }
@@ -18,12 +18,10 @@ export function enumValidator(enumArr: any[]): ValidatorFn {
 }
 
 export function minNumberValidator(testValue: number): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} => {
-    console.log(control);
+  return (control: AbstractControl): {[key: string]: any}|null => {
     if(!control.value) {
       return null;
     }
-    console.log(control.value, testValue);
     return (control.value > testValue) ? {'minNumber': {value: control.value}} : null;
   };
 }

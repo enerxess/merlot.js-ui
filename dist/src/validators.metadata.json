@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{"enumValidator":{"__symbolic":"function","parameters":["enumArr"],"value":{"__symbolic":"error","message":"Lambda not supported","line":3,"character":9}},"minNumberValidator":{"__symbolic":"function","parameters":["testValue"],"value":{"__symbolic":"error","message":"Lambda not supported","line":20,"character":9}}}}]

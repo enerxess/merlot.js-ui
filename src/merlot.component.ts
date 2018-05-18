@@ -41,7 +41,7 @@ export class MerlotComponent implements OnInit, ControlValueAccessor, Validator 
   public iModel: any;
   public ui: any;
 
-  private defaultTemplates = {'String': InputComponent, 'Number': InputComponent, 'Boolean': CheckboxComponent, 'Date': InputComponent};
+  private defaultTemplates: any = {'String': InputComponent, 'Number': InputComponent, 'Boolean': CheckboxComponent, 'Date': InputComponent};
   private component: any;
 
   constructor(
@@ -73,7 +73,7 @@ export class MerlotComponent implements OnInit, ControlValueAccessor, Validator 
     this.viewContainerRef.insert(this.component.hostView);
     (<any>this.component.instance).iModel = this.iModel;
     (<any>this.component.instance).schema = this.schema;
-    (<any>this.component.instance).ngModelChange.subscribe(event => { this.updateModel(event); });
+    (<any>this.component.instance).ngModelChange.subscribe((event: any) => { this.updateModel(event); });
   }
 
   writeValue(value: any): void {

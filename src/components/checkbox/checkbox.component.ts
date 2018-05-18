@@ -17,7 +17,7 @@ export class CheckboxComponent implements OnInit {
     this.ui = this.schema.ui || {};
   }
 
-  updateModel($event) {
+  updateModel($event: any) {
     this.ngModelChange.emit($event);
   }
 }

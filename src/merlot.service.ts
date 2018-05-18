@@ -54,7 +54,7 @@ export class Merlot {
     return validatorsArr;
   }
 
-  getDefaultValue(schema) {
+  getDefaultValue(schema: any) {
     if(schema.default) {
       return schema.default;
     } else {
@@ -124,7 +124,7 @@ export class Merlot {
   }
 
   useComponentSet(componentSet: any): void {
-    componentSet.templates.forEach(componentObj => {
+    componentSet.templates.forEach((componentObj: any) => {
       this.registerComponent(componentObj.name, componentObj.component);
     });
     this.defaultComponents = componentSet.defaultTemplates;
