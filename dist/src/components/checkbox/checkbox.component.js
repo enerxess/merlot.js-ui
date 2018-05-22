@@ -12,8 +12,7 @@ var CheckboxComponent = /** @class */ (function () {
     CheckboxComponent.decorators = [
         { type: Component, args: [{
                     selector: 'merlot-checkbox',
-                    templateUrl: './checkbox.component.html',
-                    styleUrls: ['./checkbox.component.scss']
+                    template: '<input type="checkbox" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
                 },] },
     ];
     /** @nocollapse */

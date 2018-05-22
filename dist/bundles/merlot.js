@@ -178,8 +178,7 @@
         CheckboxComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'merlot-checkbox',
-                        templateUrl: './checkbox.component.html',
-                        styleUrls: ['./checkbox.component.scss']
+                        template: '<input type="checkbox" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
                     },] },
         ];
         /** @nocollapse */
@@ -205,8 +204,7 @@
         InputComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'merlot-input',
-                        templateUrl: './input.component.html',
-                        styleUrls: ['./input.component.scss']
+                        template: '<input type="text" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
                     },] },
         ];
         /** @nocollapse */
@@ -316,8 +314,7 @@
         RadioComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'merlot-radio',
-                        templateUrl: './radio.component.html',
-                        styleUrls: ['./radio.component.scss']
+                        template: '<input type="radio" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
                     },] },
         ];
         /** @nocollapse */

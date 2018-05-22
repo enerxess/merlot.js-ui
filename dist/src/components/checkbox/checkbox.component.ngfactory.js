@@ -4,18 +4,17 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
  */ 
-import * as i0 from "./checkbox.component.scss.shim.ngstyle";
-import * as i1 from "@angular/core";
-import * as i2 from "@angular/forms";
-import * as i3 from "./checkbox.component";
-var styles_CheckboxComponent = [i0.styles];
-var RenderType_CheckboxComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_CheckboxComponent, data: {} });
+import * as i0 from "@angular/core";
+import * as i1 from "@angular/forms";
+import * as i2 from "./checkbox.component";
+var styles_CheckboxComponent = [];
+var RenderType_CheckboxComponent = i0.ɵcrt({ encapsulation: 2, styles: styles_CheckboxComponent, data: {} });
 export { RenderType_CheckboxComponent as RenderType_CheckboxComponent };
-export function View_CheckboxComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 5, "input", [["type", "checkbox"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "change"], [null, "blur"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("change" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 1).onChange($event.target.checked) !== false);
+export function View_CheckboxComponent_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 5, "input", [["type", "checkbox"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "change"], [null, "blur"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("change" === en)) {
+        var pd_0 = (i0.ɵnov(_v, 1).onChange($event.target.checked) !== false);
         ad = (pd_0 && ad);
     } if (("blur" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 1).onTouched() !== false);
+        var pd_1 = (i0.ɵnov(_v, 1).onTouched() !== false);
         ad = (pd_1 && ad);
     } if (("ngModelChange" === en)) {
         var pd_2 = ((_co.iModel = $event) !== false);
@@ -23,8 +22,8 @@ export function View_CheckboxComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.�
     } if (("ngModelChange" === en)) {
         var pd_3 = (_co.updateModel($event) !== false);
         ad = (pd_3 && ad);
-    } return ad; }, null, null)), i1.ɵdid(1, 16384, null, 0, i2.CheckboxControlValueAccessor, [i1.Renderer2, i1.ElementRef], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.CheckboxControlValueAccessor]), i1.ɵdid(3, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(5, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_7 = _co.iModel; _ck(_v, 3, 0, currVal_7); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 5).ngClassUntouched; var currVal_1 = i1.ɵnov(_v, 5).ngClassTouched; var currVal_2 = i1.ɵnov(_v, 5).ngClassPristine; var currVal_3 = i1.ɵnov(_v, 5).ngClassDirty; var currVal_4 = i1.ɵnov(_v, 5).ngClassValid; var currVal_5 = i1.ɵnov(_v, 5).ngClassInvalid; var currVal_6 = i1.ɵnov(_v, 5).ngClassPending; _ck(_v, 0, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6); }); }
-export function View_CheckboxComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "merlot-checkbox", [], null, null, null, View_CheckboxComponent_0, RenderType_CheckboxComponent)), i1.ɵdid(1, 114688, null, 0, i3.CheckboxComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-var CheckboxComponentNgFactory = i1.ɵccf("merlot-checkbox", i3.CheckboxComponent, View_CheckboxComponent_Host_0, { iModel: "iModel", schema: "schema" }, { ngModelChange: "ngModelChange" }, []);
+    } return ad; }, null, null)), i0.ɵdid(1, 16384, null, 0, i1.CheckboxControlValueAccessor, [i0.Renderer2, i0.ElementRef], null, null), i0.ɵprd(1024, null, i1.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i1.CheckboxControlValueAccessor]), i0.ɵdid(3, 671744, null, 0, i1.NgModel, [[8, null], [8, null], [8, null], [6, i1.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i0.ɵprd(2048, null, i1.NgControl, null, [i1.NgModel]), i0.ɵdid(5, 16384, null, 0, i1.NgControlStatus, [[4, i1.NgControl]], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_7 = _co.iModel; _ck(_v, 3, 0, currVal_7); }, function (_ck, _v) { var currVal_0 = i0.ɵnov(_v, 5).ngClassUntouched; var currVal_1 = i0.ɵnov(_v, 5).ngClassTouched; var currVal_2 = i0.ɵnov(_v, 5).ngClassPristine; var currVal_3 = i0.ɵnov(_v, 5).ngClassDirty; var currVal_4 = i0.ɵnov(_v, 5).ngClassValid; var currVal_5 = i0.ɵnov(_v, 5).ngClassInvalid; var currVal_6 = i0.ɵnov(_v, 5).ngClassPending; _ck(_v, 0, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6); }); }
+export function View_CheckboxComponent_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "merlot-checkbox", [], null, null, null, View_CheckboxComponent_0, RenderType_CheckboxComponent)), i0.ɵdid(1, 114688, null, 0, i2.CheckboxComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+var CheckboxComponentNgFactory = i0.ɵccf("merlot-checkbox", i2.CheckboxComponent, View_CheckboxComponent_Host_0, { iModel: "iModel", schema: "schema" }, { ngModelChange: "ngModelChange" }, []);
 export { CheckboxComponentNgFactory as CheckboxComponentNgFactory };
 //# sourceMappingURL=checkbox.component.ngfactory.js.map

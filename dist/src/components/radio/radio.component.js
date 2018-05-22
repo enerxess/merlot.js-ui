@@ -12,8 +12,7 @@ var RadioComponent = /** @class */ (function () {
     RadioComponent.decorators = [
         { type: Component, args: [{
                     selector: 'merlot-radio',
-                    templateUrl: './radio.component.html',
-                    styleUrls: ['./radio.component.scss']
+                    template: '<input type="radio" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
                 },] },
     ];
     /** @nocollapse */

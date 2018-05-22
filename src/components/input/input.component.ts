@@ -2,8 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'merlot-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  template: '<input type="text" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
 })
 export class InputComponent implements OnInit {
   @Input('iModel') iModel: any;

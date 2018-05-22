@@ -12,8 +12,7 @@ var InputComponent = /** @class */ (function () {
     InputComponent.decorators = [
         { type: Component, args: [{
                     selector: 'merlot-input',
-                    templateUrl: './input.component.html',
-                    styleUrls: ['./input.component.scss']
+                    template: '<input type="text" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
                 },] },
     ];
     /** @nocollapse */
