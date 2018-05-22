@@ -68,8 +68,7 @@ var MerlotComponent = /** @class */ (function () {
         { type: Component, args: [{
                     // tslint:disable-next-line
                     selector: 'merlot',
-                    templateUrl: './merlot.component.html',
-                    styleUrls: ['./merlot.component.scss'],
+                    template: '',
                     providers: [MERLOT_CVA, MERLOT_FORWARD_VALIDATORS]
                 },] },
     ];

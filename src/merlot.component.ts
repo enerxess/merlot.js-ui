@@ -28,8 +28,7 @@ export const MERLOT_FORWARD_VALIDATORS: any = {
 @Component({
   // tslint:disable-next-line
   selector: 'merlot',
-  templateUrl: './merlot.component.html',
-  styleUrls: ['./merlot.component.scss'],
+  template: '',
   providers: [MERLOT_CVA, MERLOT_FORWARD_VALIDATORS]
 })
 export class MerlotComponent implements OnInit, ControlValueAccessor, Validator {

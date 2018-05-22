@@ -13,4 +13,4 @@ export default {
     'rxjs/add/observable/fromEvent': 'Rx.Observable',
     'rxjs/add/observable/of': 'Rx.Observable'
   }
-}
+};

@@ -4,11 +4,13 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "clean": "rm -rf dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "transpile": "ngc",
+    "html": "copyfiles src/**/*.html dist/",
     "package": "rollup -c",
     "minify": "uglifyjs dist/bundles/merlot.js --screw-ie8 --compress --mangle --comments --output dist/bundles/merlot.min.js",
-    "build": "npm run transpile && npm run package && npm run minify"
+    "build": "npm run clean && npm run transpile && npm run html && npm run package && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -28,8 +30,8 @@
   "peerDependencies": {
     "@angular/common": "^2 || ^4",
     "@angular/core": "^2 || ^4",
-    "typescript": "^2.0.0",
-    "rxjs": "^5.5.0"
+    "rxjs": "^5.5.0",
+    "typescript": "^2.0.0"
   },
   "devDependencies": {
     "@angular/common": "^6.0.2",
@@ -37,6 +39,7 @@
     "@angular/compiler-cli": "^6.0.2",
     "@angular/core": "^6.0.2",
     "@angular/forms": "^6.0.2",
+    "copyfiles": "^2.0.0",
     "rollup": "^0.59.1",
     "rxjs": "^6.1.0",
     "typescript": "^2.7.2",
