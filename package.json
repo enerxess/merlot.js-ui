@@ -7,7 +7,7 @@
     "clean": "rm -rf dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "transpile": "ngc",
-    "html": "copyfiles src/**/*.html dist/",
+    "html": "copyfiles src/**/*.html src/**/*.scss dist/",
     "package": "rollup -c",
     "minify": "uglifyjs dist/bundles/merlot.js --screw-ie8 --compress --mangle --comments --output dist/bundles/merlot.min.js",
     "build": "npm run clean && npm run transpile && npm run html && npm run package && npm run minify"
