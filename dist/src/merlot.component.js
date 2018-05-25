@@ -50,6 +50,7 @@ var MerlotComponent = /** @class */ (function () {
     };
     MerlotComponent.prototype.writeValue = function (value) {
         this.iModel = value;
+        this.component.instance.iModel = this.iModel;
     };
     MerlotComponent.prototype.registerOnChange = function (fn) {
         this.propagateChange = fn;
