@@ -77,6 +77,7 @@ export class MerlotComponent implements OnInit, ControlValueAccessor, Validator 
 
   writeValue(value: any): void {
     this.iModel = value;
+    (<any>this.component.instance).iModel = this.iModel;
   }
 
   registerOnChange(fn: any): void {
