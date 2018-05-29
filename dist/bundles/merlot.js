@@ -128,6 +128,40 @@
                 });
             });
         };
+        Merlot.prototype.rPopulateForm = function (form, data) {
+            var _this = this;
+            Object.keys(form.controls).forEach(function (controlKey) {
+                if (!data[controlKey]) {
+                    return;
+                }
+                var control = form.get(controlKey);
+                if (!control) {
+                    return;
+                }
+                if (Array.isArray(control.value)) {
+                    data[controlKey].forEach(function (value) {
+                        if (Array.isArray(value)) {
+                            control.push(new forms.FormArray([]));
+                            _this.rPopulateForm(control, data[controlKey]);
+                        }
+                        else if (typeof value === 'object') {
+                            control.push(new forms.FormGroup({}));
+                            _this.rPopulateForm(control, data[controlKey]);
+                        }
+                        else {
+                            control.push(new forms.FormControl());
+                        }
+                    });
+                }
+                else if (typeof control.value === 'object') {
+                    _this.rPopulateForm(control, data[controlKey]);
+                }
+            });
+        };
+        Merlot.prototype.populateForm = function (form, data) {
+            this.rPopulateForm(form, data);
+            form.patchValue(data);
+        };
         Merlot.prototype.registerComponent = function (name, component) {
             this.components.push({ name: name, component: component });
         };

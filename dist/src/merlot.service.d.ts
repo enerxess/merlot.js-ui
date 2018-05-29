@@ -18,6 +18,8 @@ export declare class Merlot {
      */
     rParseSchema(form: any, schema: any): FormGroup;
     createFormBySchema(name: string): Observable<FormGroup>;
+    rPopulateForm(form: FormGroup, data: any): void;
+    populateForm(form: FormGroup, data: any): void;
     registerComponent(name: string, component: any): void;
     getComponentByName(name: string): any;
     useComponentSet(componentSet: any): void;

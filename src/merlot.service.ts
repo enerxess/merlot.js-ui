@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, ReplaySubject } from 'rxjs';
 
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 
 import { enumValidator, minNumberValidator } from './validators';
 
@@ -104,6 +104,38 @@ export class Merlot {
         observer.complete();
       });
     });
+  }
+
+  rPopulateForm(form: FormGroup, data: any): void {
+    Object.keys(<any>form.controls).forEach(controlKey => {
+      if(!data[controlKey]) {
+        return;
+      }
+      const control = form.get(controlKey);
+      if(!control) {
+        return;
+      }
+      if(Array.isArray(control.value)) {
+        data[controlKey].forEach((value: any) => {
+          if(Array.isArray(value)) {
+            (<any>control).push(new FormArray([]));
+            this.rPopulateForm(<any>control, data[controlKey]);
+          } else if(typeof value === 'object') {
+            (<any>control).push(new FormGroup({}));
+            this.rPopulateForm(<any>control, data[controlKey]);
+          } else {
+            (<any>control).push(new FormControl());
+          }
+        });
+      } else if(typeof control.value === 'object') {
+        this.rPopulateForm(<FormGroup>control, data[controlKey]);
+      }
+    });
+  }
+
+  populateForm(form: FormGroup, data: any): void {
+    this.rPopulateForm(form, data);
+    form.patchValue(data);
   }
 
   registerComponent(name: string, component: any): void {
