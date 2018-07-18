@@ -27,6 +27,9 @@
     "index.ts"
   ],
   "angularCompilerOptions": {
-    "strictMetadataEmit": true
+    "strictMetadataEmit": true,
+    "genDir": "dist",
+    "skipTemplateCodegen": true
+
   }
 }
