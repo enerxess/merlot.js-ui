@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 var InputComponent = /** @class */ (function () {
     function InputComponent() {
         this.ngModelChange = new EventEmitter();
@@ -12,7 +12,8 @@ var InputComponent = /** @class */ (function () {
     InputComponent.decorators = [
         { type: Component, args: [{
                     selector: 'merlot-input',
-                    template: '<input type="text" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
+                    template: '<input type="text" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />',
+                    encapsulation: ViewEncapsulation.Native
                 },] },
     ];
     /** @nocollapse */

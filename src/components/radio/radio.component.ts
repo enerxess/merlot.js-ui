@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'merlot-radio',
-  template: '<input type="radio" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
+  template: '<input type="radio" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />',
+  encapsulation: ViewEncapsulation.Native
 })
 export class RadioComponent implements OnInit {
   @Input('iModel') iModel: any;

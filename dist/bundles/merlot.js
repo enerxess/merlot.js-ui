@@ -212,7 +212,8 @@
         CheckboxComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'merlot-checkbox',
-                        template: '<input type="checkbox" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
+                        template: '<input type="checkbox" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />',
+                        encapsulation: core.ViewEncapsulation.Native
                     },] },
         ];
         /** @nocollapse */
@@ -238,7 +239,8 @@
         InputComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'merlot-input',
-                        template: '<input type="text" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
+                        template: '<input type="text" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />',
+                        encapsulation: core.ViewEncapsulation.Native
                     },] },
         ];
         /** @nocollapse */
@@ -349,7 +351,8 @@
         RadioComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'merlot-radio',
-                        template: '<input type="radio" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
+                        template: '<input type="radio" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />',
+                        encapsulation: core.ViewEncapsulation.Native
                     },] },
         ];
         /** @nocollapse */

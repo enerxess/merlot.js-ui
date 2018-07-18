@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 var RadioComponent = /** @class */ (function () {
     function RadioComponent() {
         this.ngModelChange = new EventEmitter();
@@ -12,7 +12,8 @@ var RadioComponent = /** @class */ (function () {
     RadioComponent.decorators = [
         { type: Component, args: [{
                     selector: 'merlot-radio',
-                    template: '<input type="radio" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
+                    template: '<input type="radio" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />',
+                    encapsulation: ViewEncapsulation.Native
                 },] },
     ];
     /** @nocollapse */

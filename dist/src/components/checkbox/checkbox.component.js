@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 var CheckboxComponent = /** @class */ (function () {
     function CheckboxComponent() {
         this.ngModelChange = new EventEmitter();
@@ -12,7 +12,8 @@ var CheckboxComponent = /** @class */ (function () {
     CheckboxComponent.decorators = [
         { type: Component, args: [{
                     selector: 'merlot-checkbox',
-                    template: '<input type="checkbox" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />'
+                    template: '<input type="checkbox" [(ngModel)]="iModel" (ngModelChange)="updateModel($event)" />',
+                    encapsulation: ViewEncapsulation.Native
                 },] },
     ];
     /** @nocollapse */

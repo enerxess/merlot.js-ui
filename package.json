@@ -1,6 +1,6 @@
 {
   "name": "merlot.js-ui",
-  "version": "0.0.3-developer-preview",
+  "version": "0.0.4-developer-preview",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
