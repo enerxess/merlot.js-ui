@@ -84,7 +84,7 @@ export class Merlot {
               form.addControl(key, this.fb.array([]));
             } else {
               // Childs expected
-              form.addControl(key, this.fb.array([this.rParseSchema(this.fb.group({}), schemaEntry)]));
+              form.addControl(key, this.fb.array([this.rParseSchema(this.fb.group({}), schemaEntry[0])]));
             }
           } else if(schemaEntry instanceof Object) {
             form.addControl(key, this.rParseSchema(this.fb.group({}), schemaEntry));

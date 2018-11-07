@@ -88,7 +88,7 @@ var Merlot = /** @class */ (function () {
                         }
                         else {
                             // Childs expected
-                            form.addControl(key, _this.fb.array([_this.rParseSchema(_this.fb.group({}), schemaEntry)]));
+                            form.addControl(key, _this.fb.array([_this.rParseSchema(_this.fb.group({}), schemaEntry[0])]));
                         }
                     }
                     else if (schemaEntry instanceof Object) {
