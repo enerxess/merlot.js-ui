@@ -145,7 +145,15 @@
                             _this.rPopulateForm(control, data[controlKey]);
                         }
                         else if (typeof value === 'object') {
-                            control.push(new forms.FormGroup({}));
+                            /*
+                                            Hey there! The following line seems to be strange, doesn't it? :-)
+                                            It's because of angular's patchValue Function, which we call later, so we let
+                                            angular patch the last item. All other items are need to be handled by us.
+                                        */
+                            if (control.length >= data[controlKey].length) {
+                                return;
+                            }
+                            control.push(_this.fb.group(value));
                             _this.rPopulateForm(control, data[controlKey]);
                         }
                         else {

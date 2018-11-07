@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, ReplaySubject } from 'rxjs';
-import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 import { enumValidator } from './validators';
 var Merlot = /** @class */ (function () {
     function Merlot(http, fb, MERLOT_CONFIG) {
@@ -127,7 +127,15 @@ var Merlot = /** @class */ (function () {
                         _this.rPopulateForm(control, data[controlKey]);
                     }
                     else if (typeof value === 'object') {
-                        control.push(new FormGroup({}));
+                        /*
+                                        Hey there! The following line seems to be strange, doesn't it? :-)
+                                        It's because of angular's patchValue Function, which we call later, so we let
+                                        angular patch the last item. All other items are need to be handled by us.
+                                    */
+                        if (control.length >= data[controlKey].length) {
+                            return;
+                        }
+                        control.push(_this.fb.group(value));
                         _this.rPopulateForm(control, data[controlKey]);
                     }
                     else {
