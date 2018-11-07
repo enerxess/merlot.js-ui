@@ -1,6 +1,6 @@
 {
   "name": "merlot.js-ui",
-  "version": "0.0.6-developer-preview",
+  "version": "0.0.7-developer-preview",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -21,12 +21,10 @@
     "url": "https://github.com/enerxess/merlot.js-ui/issues"
   },
   "author": "ener|xess GmbH",
-  "contributers": [
-    {
-      "name": "Tobias Engelberg",
-      "email": "tobias.engelberg@enerxess.com"
-    }
-  ],
+  "contributers": [{
+    "name": "Tobias Engelberg",
+    "email": "tobias.engelberg@enerxess.com"
+  }],
   "peerDependencies": {
     "@angular/common": "^2 || ^4",
     "@angular/core": "^2 || ^4",

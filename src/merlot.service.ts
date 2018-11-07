@@ -28,11 +28,11 @@ export class Merlot {
   getSchemaByName(name: string): Observable<any> {
     return new Observable(observer => {
       this.schemes.subscribe(schemes => {
-        if(schemes[name]) {
+        if (schemes[name]) {
           observer.next(schemes[name]);
           observer.complete();
         } else {
-          observer.error({err: `Schema ${name} unknown.`});
+          observer.error({ err: `Schema ${name} unknown.` });
         }
       });
     });
@@ -43,10 +43,10 @@ export class Merlot {
     const validatorsArr = [];
     schemaEntry.required ? validatorsArr.push(Validators.required) : '';
     schemaEntry.enum ? validatorsArr.push(enumValidator(schemaEntry.enum)) : '';
-    if(schemaEntry.type === 'Number') {
+    if (schemaEntry.type === 'Number') {
       (schemaEntry.min || schemaEntry.min === 0) ? validatorsArr.push(Validators.min(schemaEntry.min)) : '';
       (schemaEntry.max || schemaEntry.max === 0) ? validatorsArr.push(Validators.max(schemaEntry.max)) : '';
-    } else if(schemaEntry.type === 'String') {
+    } else if (schemaEntry.type === 'String') {
       schemaEntry.min ? validatorsArr.push(Validators.minLength(schemaEntry.min)) : '';
       schemaEntry.max ? validatorsArr.push(Validators.maxLength(schemaEntry.max)) : '';
       schemaEntry.pattern ? validatorsArr.push(Validators.pattern(schemaEntry.pattern)) : '';
@@ -55,10 +55,10 @@ export class Merlot {
   }
 
   getDefaultValue(schema: any) {
-    if(schema.default) {
+    if (schema.default) {
       return schema.default;
     } else {
-      switch(schema.type) {
+      switch (schema.type) {
         case 'Boolean': return false;
         default: return '';
       }
@@ -72,21 +72,21 @@ export class Merlot {
     Object.keys(schema).forEach(key => {
       const schemaEntry = schema[key];
       // Ignore Virtuals
-      if(!schemaEntry.virtual) {
-        if(schemaEntry.type) {
+      if (!schemaEntry.virtual) {
+        if (schemaEntry.type) {
           form.addControl(key, new FormControl(this.getDefaultValue(schemaEntry), this.getValidatorsBySchemaEntry(schemaEntry)));
         } else {
           // Handle if FormArray of FormGroup
-          if(schemaEntry instanceof Array) {
+          if (schemaEntry instanceof Array) {
             // Check if array has childs
-            if(schemaEntry[0].type) {
+            if (schemaEntry[0].type) {
               // No Childs expected
               form.addControl(key, this.fb.array([]));
             } else {
               // Childs expected
               form.addControl(key, this.fb.array([this.rParseSchema(this.fb.group({}), schemaEntry[0])]));
             }
-          } else if(schemaEntry instanceof Object) {
+          } else if (schemaEntry instanceof Object) {
             form.addControl(key, this.rParseSchema(this.fb.group({}), schemaEntry));
           }
         }
@@ -108,26 +108,34 @@ export class Merlot {
 
   rPopulateForm(form: FormGroup, data: any): void {
     Object.keys(<any>form.controls).forEach(controlKey => {
-      if(!data[controlKey]) {
+      if (!data[controlKey]) {
         return;
       }
       const control = form.get(controlKey);
-      if(!control) {
+      if (!control) {
         return;
       }
-      if(Array.isArray(control.value)) {
+      if (Array.isArray(control.value)) {
         data[controlKey].forEach((value: any) => {
-          if(Array.isArray(value)) {
+          if (Array.isArray(value)) {
             (<any>control).push(new FormArray([]));
             this.rPopulateForm(<any>control, data[controlKey]);
-          } else if(typeof value === 'object') {
-            (<any>control).push(new FormGroup({}));
+          } else if (typeof value === 'object') {
+            /* 
+                Hey there! The following line seems to be strange, doesn't it? :-)
+                It's because of angular's patchValue Function, which we call later, so we let
+                angular patch the last item. All other items are need to be handled by us.
+            */
+            if ((<any>control).length >= data[controlKey].length) {
+              return;
+            }
+            (<any>control).push(this.fb.group(value));
             this.rPopulateForm(<any>control, data[controlKey]);
           } else {
             (<any>control).push(new FormControl());
           }
         });
-      } else if(typeof control.value === 'object') {
+      } else if (typeof control.value === 'object') {
         this.rPopulateForm(<FormGroup>control, data[controlKey]);
       }
     });
@@ -139,16 +147,16 @@ export class Merlot {
   }
 
   registerComponent(name: string, component: any): void {
-    this.components.push({name, component});
+    this.components.push({ name, component });
   }
 
   getComponentByName(name: string): any {
     let component;
-    if(!this.components.length) {
+    if (!this.components.length) {
       return undefined;
     }
     this.components.forEach(componentObj => {
-      if(componentObj.name === name) {
+      if (componentObj.name === name) {
         component = componentObj.component;
       }
     });
