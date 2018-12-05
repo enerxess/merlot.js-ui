@@ -135,7 +135,9 @@ var Merlot = /** @class */ (function () {
                         if (control.length >= data[controlKey].length) {
                             return;
                         }
-                        control.push(_this.fb.group(value));
+                        if (value) {
+                            control.push(_this.fb.group(value));
+                        }
                         _this.rPopulateForm(control, data[controlKey]);
                     }
                     else {
