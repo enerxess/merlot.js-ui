@@ -129,7 +129,9 @@ export class Merlot {
             if ((<any>control).length >= data[controlKey].length) {
               return;
             }
-            (<any>control).push(this.fb.group(value));
+            if (value) {
+              (<any>control).push(this.fb.group(value));
+            }
             this.rPopulateForm(<any>control, data[controlKey]);
           } else {
             (<any>control).push(new FormControl());
