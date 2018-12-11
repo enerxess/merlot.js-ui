@@ -11,7 +11,7 @@ export function enumValidator(enumArr) {
                 return;
             }
         });
-        return !found ? { 'enumValidator': { value: control.value } } : null;
+        return !found ? { 'enumValidator': { value: control.value, allowedValues: enumArr } } : null;
     };
 }
 export function minNumberValidator(testValue) {
@@ -19,7 +19,7 @@ export function minNumberValidator(testValue) {
         if (!control.value) {
             return null;
         }
-        return (control.value > testValue) ? { 'minNumber': { value: control.value } } : null;
+        return (control.value > testValue) ? { 'minNumber': { value: control.value, requiredElements: testValue } } : null;
     };
 }
 //# sourceMappingURL=validators.js.map

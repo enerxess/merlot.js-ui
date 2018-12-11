@@ -17,7 +17,7 @@
                     return;
                 }
             });
-            return !found ? { 'enumValidator': { value: control.value } } : null;
+            return !found ? { 'enumValidator': { value: control.value, allowedValues: enumArr } } : null;
         };
     }
 
